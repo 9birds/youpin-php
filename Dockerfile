@@ -38,11 +38,12 @@ ENV PHP_VERSION 5.6.25
 ENV PHP_FILENAME php-5.6.25.tar.xz
 ENV PHP_SHA256 7535cd6e20040ccec4594cc386c6f15c3f2c88f24163294a31068cf7dfe7f644
 
+COPY $PHP_FILENAME /usr/src/
+COPY $PHP_FILENAME.asc /usr/src/
+
 RUN set -xe \
     && cd /usr/src \
-    && curl -fSL "https://secure.php.net/distributions/$PHP_FILENAME" -o php.tar.xz \
     && echo "$PHP_SHA256 *php.tar.xz" | sha256sum -c - \
-    && curl -fSL "https://secure.php.net/distributions/$PHP_FILENAME.asc" -o php.tar.xz.asc \
     && export GNUPGHOME="$(mktemp -d)" \
     && for key in $GPG_KEYS; do \
         gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
