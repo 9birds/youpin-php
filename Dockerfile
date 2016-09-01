@@ -35,11 +35,11 @@ ENV PHP_EXTRA_CONFIGURE_ARGS --enable-fpm --with-fpm-user=www-data --with-fpm-gr
 ENV GPG_KEYS 0BD78B5F97500D450838F95DFE857D9A90D90EC1 6E4F6AB321FDC07F2C332E3AC2BF0BC433CFC8B3
 
 ENV PHP_VERSION 5.6.25
-ENV PHP_FILENAME php-5.6.25.tar.xz
+ENV PHP_FILENAME php.tar.xz
 ENV PHP_SHA256 7535cd6e20040ccec4594cc386c6f15c3f2c88f24163294a31068cf7dfe7f644
 
-COPY $PHP_FILENAME /usr/src/
-COPY $PHP_FILENAME.asc /usr/src/
+COPY php.tar.xz /usr/src/
+COPY php.tar.xz.asc /usr/src/
 
 RUN set -xe \
     && cd /usr/src \
