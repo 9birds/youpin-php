@@ -19,4 +19,4 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 9000
-CMD ["php-fpm7.0"]
+CMD ["php-fpm7.0","--nodaemonize"]
