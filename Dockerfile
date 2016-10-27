@@ -43,4 +43,3 @@ RUN set -ex \
 
 EXPOSE 9000
 CMD ["php-fpm7.0"]
-
