@@ -16,7 +16,9 @@ RUN apt-get update \
         php7.0-mysql \
         --no-install-recommends \
     && mkdir /run/php \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && curl -sS https://getcomposer.org/installer \
+        | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN set -ex \
     && cd /etc/php/7.0/fpm \
