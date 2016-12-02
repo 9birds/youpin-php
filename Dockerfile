@@ -14,11 +14,10 @@ RUN apt-get update \
         php7.0-curl \
         php7.0-mbstring \
         php7.0-mysql \
+        php7.0-bcmath \
         --no-install-recommends \
     && mkdir /run/php \
-    && rm -rf /var/lib/apt/lists/* \
-    && curl -sS https://getcomposer.org/installer \
-        | php -- --install-dir=/usr/local/bin --filename=composer
+    && rm -rf /var/lib/apt/lists/*
 
 RUN set -ex \
     && cd /etc/php/7.0/fpm \
