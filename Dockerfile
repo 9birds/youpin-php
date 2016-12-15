@@ -26,7 +26,7 @@ RUN set -ex \
     && cd /etc/php/7.0/fpm \
     && sed -i 's/pm = dynamic/pm = static/g' \
         pool.d/www.conf \
-    && sed -i 's/pm.max_children = 5/pm.max_children = 50/g' \
+    && sed -i 's/pm.max_children = 5/pm.max_children = 20/g' \
         pool.d/www.conf \
     && { \
         echo '[global]'; \
